@@ -3,6 +3,7 @@ package com.aimatrix.fullstack.project;
 import io.smallrye.mutiny.Uni;
 import org.jboss.resteasy.reactive.ResponseStatus;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/api/v1/projects")
+@RolesAllowed("user")
 public class ProjectResource {
 
   private final ProjectService projectService;

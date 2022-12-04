@@ -3,6 +3,7 @@ package com.aimatrix.fullstack.user;
 import io.smallrye.mutiny.Uni;
 import org.jboss.resteasy.reactive.ResponseStatus;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/api/v1/users")
+@RolesAllowed("admin")
 public class UserResource {
 
   private final UserService userService;
@@ -58,8 +60,17 @@ public class UserResource {
 
   @GET
   @Path("self")
+  @RolesAllowed("user")
   public Uni<User> getCurrentUser() {
     return userService.getCurrentUser();
+  }
+
+  @PUT
+  @Path("self/password")
+  @RolesAllowed("user")
+  public Uni<User> changePassword(PasswordChange passwordChange) {
+    return userService
+      .changePassword(passwordChange.currentPassword(), passwordChange.newPassword());
   }
 
 }
