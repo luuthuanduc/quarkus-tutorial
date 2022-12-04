@@ -36,4 +36,7 @@ public class User extends PanacheEntity {
   @Column(name = "role")
   public List<String> roles;
 
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }
