@@ -20,6 +20,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-smallrye-jwt'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
+    testImplementation 'io.quarkus:quarkus-test-security-jwt'
 }
 
 group 'com.aimatrix'
