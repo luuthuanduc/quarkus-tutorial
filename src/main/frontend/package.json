@@ -41,5 +41,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "msw": "0.43.1"
+  },
+  "jest": {
+    "testMatch": ["**/?(*.)+(spec|test).[jt]s?(x)"]
   }
 }
